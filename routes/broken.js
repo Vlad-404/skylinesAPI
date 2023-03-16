@@ -1,10 +1,13 @@
 const express = require('express');
-const getBroken = require('../controllers/broken');
+const broken = require('../controllers/broken');
 
 // const Broken = require('../models/Broken')
 
 const router = express.Router();
 
-router.get(getBroken);
+router
+    .route('/')
+    .get(broken.getBroken)
+    .post(broken.addBroken)
 
 module.exports = router;
