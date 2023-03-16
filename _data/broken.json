@@ -1,0 +1,219 @@
+[
+    {
+        "_id": "421188880",
+        "title": "[ARIS] Early Death",
+        "url": "https://steamcommunity.com/sharedfiles/filedetails/?id=421188880",
+        "issue": "Dead, breaks game",
+        "replacementTitle": "",
+        "replacementUrl": ""
+    },
+    {
+        "_id": "439582006",
+        "title": "[ARIS] Enhanced Garbage Truck AI",
+        "url": "https://steamcommunity.com/sharedfiles/filedetails/?id=439582006",
+        "issue": "Dead, breaks game",
+        "replacementTitle": "",
+        "replacementUrl": ""
+    },
+    {
+        "_id": "433249875",
+        "title": "[ARIS] Enhanced Hearse AI",
+        "url": "https://steamcommunity.com/sharedfiles/filedetails/?id=433249875",
+        "issue": "Dead, breaks game",
+        "replacementTitle": "",
+        "replacementUrl": ""
+    },
+    {
+        "_id": "421050717",
+        "title": "[ARIS] Remove Cows",
+        "url": "https://steamcommunity.com/sharedfiles/filedetails/?id=421050717",
+        "issue": "Dead, breaks game",
+        "replacementTitle": "",
+        "replacementUrl": ""
+    },
+    {
+        "_id": "421052798",
+        "title": "[ARIS] Remove Pigs",
+        "url": "https://steamcommunity.com/sharedfiles/filedetails/?id=421052798",
+        "issue": "Dead, breaks game",
+        "replacementTitle": "",
+        "replacementUrl": ""
+    },
+    {
+        "_id": "421041154",
+        "title": "[ARIS] Remove Seagulls",
+        "url": "https://steamcommunity.com/sharedfiles/filedetails/?id=421041154",
+        "issue": "Dead, breaks game",
+        "replacementTitle": "No Seagulls or Hide it",
+        "replacementUrl": "https://steamcommunity.com/sharedfiles/filedetails/?id=564141599"
+    },
+    {
+        "_id": "428094792",
+        "title": "[ARIS] Remove Stuck Vehicles",
+        "url": "https://steamcommunity.com/sharedfiles/filedetails/?id=428094792",
+        "issue": "Dead, breaks game",
+        "replacementTitle": "TM:PE V11 STABLE",
+        "replacementUrl": "https://steamcommunity.com/sharedfiles/filedetails/?id=1637663252"
+    },
+    {
+        "_id": "421028969",
+        "title": "[ARIS] Skylines Overwatch",
+        "url": "https://steamcommunity.com/sharedfiles/filedetails/?id=421028969",
+        "issue": "Dead, breaks game",
+        "replacementTitle": "",
+        "replacementUrl": ""
+    },
+    {
+        "_id": "576327847",
+        "title": "81 tiles",
+        "url": "https://steamcommunity.com/sharedfiles/filedetails/?id=576327847",
+        "issue": "Broken",
+        "replacementTitle": "81 Tiles 2 TESTING",
+        "replacementUrl": "https://steamcommunity.com/sharedfiles/filedetails/?id=2862121823"
+    },
+    {
+        "_id": "1361478243",
+        "title": "81 Tiles (Not the real 81 tiles!)",
+        "url": "Removed",
+        "issue": "Dead, breaks game",
+        "replacementTitle": "81 Tiles 2 TESTING",
+        "replacementUrl": "https://steamcommunity.com/sharedfiles/filedetails/?id=2862121823"
+    },
+    {
+        "_id": "422554572",
+        "title": "81 Tiles Updated",
+        "url": "https://steamcommunity.com/sharedfiles/filedetails/?id=422554572",
+        "issue": "Dead, breaks game",
+        "replacementTitle": "81 Tiles 2 TESTING",
+        "replacementUrl": "https://steamcommunity.com/sharedfiles/filedetails/?id=2862121823"
+    },
+    {
+        "_id": "41444491969",
+        "title": "Achievements with Mods",
+        "url": "https://steamcommunity.com/sharedfiles/filedetails/?id=1444491969",
+        "issue": "Dead, broken",
+        "replacementTitle": ["Achieve It!", "Game Anarchy"],
+        "replacementUrl": ["https://steamcommunity.com/sharedfiles/filedetails/?id=1567569285", "https://steamcommunity.com/sharedfiles/filedetails/?id=2781804786"]
+    },
+    {
+        "_id": "412168106",
+        "title": "Adjustable Demand v2",
+        "url": "https://steamcommunity.com/sharedfiles/filedetails/?id=412168106",
+        "issue": "Dead, broken, errors",
+        "replacementTitle": ["Infinite Demand", "Game Anarchy"],
+        "replacementUrl": ["https://steamcommunity.com/sharedfiles/filedetails/?id=1522785644", "https://steamcommunity.com/sharedfiles/filedetails/?id=2781804786"]
+    },
+    {
+        "_id": "790347696",
+        "title": "Advanced Building Editor",
+        "url": "https://steamcommunity.com/sharedfiles/filedetails/?id=790347696",
+        "issue": "Broken",
+        "replacementTitle": "",
+        "replacementUrl": ""
+    },
+    {
+        "_id": "1647686914",
+        "title": "Advanced Junction Rule",
+        "url": "Removed",
+        "issue": "Dead, broken, breaks game",
+        "replacementTitle": "TM:PE V11 STABLE",
+        "replacementUrl": "https://steamcommunity.com/sharedfiles/filedetails/?id=1637663252"
+    },
+    {
+        "_id": "433567230",
+        "title": "Advanced Road Anarchy",
+        "url": "Removed",
+        "issue": "Dead, broken",
+        "replacementTitle": "Network Anarchy",
+        "replacementUrl": "https://steamcommunity.com/sharedfiles/filedetails/?id=2862881785"
+    },
+    {
+        "_id": "1394468624",
+        "title": "Advanced Stop Selection",
+        "url": "https://steamcommunity.com/sharedfiles/filedetails/?id=1394468624",
+        "issue": "Broken",
+        "replacementTitle": "Advanced Stop Selection Revisited",
+        "replacementUrl": "https://steamcommunity.com/sharedfiles/filedetails/?id=2862973068"
+    },
+    {
+        "_id": "442167376",
+        "title": "Advanced Vehicle Options (AVO)",
+        "url": "removed",
+        "issue": "Dead, no support for Industries",
+        "replacementTitle": "Advanced Vehicle Options AVO",
+        "replacementUrl": "https://steamcommunity.com/sharedfiles/filedetails/?id=1548831935"
+    },
+    {
+        "_id": "793489846",
+        "title": "Aedificium",
+        "url": "removed",
+        "issue": "Dead, broken",
+        "replacementTitle": "DO NOT SUBSCRIBE TO CONTENT WHILST THE GAME IS RUNNING!",
+        "replacementUrl": ""
+    },
+    {
+        "_id": "1452259306",
+        "title": "Aedificium RELOADED",
+        "url": "removed",
+        "issue": "Dead, broken",
+        "replacementTitle": "DO NOT SUBSCRIBE TO CONTENT WHILST THE GAME IS RUNNING!",
+        "replacementUrl": ""
+    },
+    {
+        "_id": "616078328",
+        "title": "All Tile Start",
+        "url": "https://steamcommunity.com/sharedfiles/filedetails/?id=616078328",
+        "issue": "Dead, breaks game",
+        "replacementTitle": "81 Tiles 2 TESTING",
+        "replacementUrl": "https://steamcommunity.com/sharedfiles/filedetails/?id=2862121823"
+    },
+    {
+        "_id": "2784268275",
+        "title": "AllowIntercityTrains v1.2",
+        "url": "https://steamcommunity.com/sharedfiles/filedetails/?id=2784268275",
+        "issue": "Obsolete, Broken, Added to base game",
+        "replacementTitle": "",
+        "replacementUrl": ""
+    },
+    {
+        "_id": "474652684",
+        "title": "Asset Prefab(+Building) AI Changer",
+        "url": "https://steamcommunity.com/sharedfiles/filedetails/?id=474652684",
+        "issue": "Broken",
+        "replacementTitle": "",
+        "replacementUrl": ""
+    },
+    {
+        "_id": "408760323",
+        "title": "Auto Line Color",
+        "url": "https://steamcommunity.com/sharedfiles/filedetails/?id=408760323",
+        "issue": "Dead, broken",
+        "replacementTitle": "AutoLineColor Redux",
+        "replacementUrl": "https://steamcommunity.com/sharedfiles/filedetails/?id=1415090282"
+    },
+    {
+        "_id": "406132323",
+        "title": "Automatic Bulldoze",
+        "url": "removed",
+        "issue": "Dead, errors",
+        "replacementTitle": "Bulldoze It!",
+        "replacementUrl": "https://steamcommunity.com/sharedfiles/filedetails/?id=1627986403"
+    },
+    {
+        "_id": "639486063",
+        "title": "Automatic Bulldoze v2",
+        "url": "https://steamcommunity.com/sharedfiles/filedetails/?id=639486063",
+        "issue": "Dead, broken",
+        "replacementTitle": "Bulldoze It!",
+        "replacementUrl": "https://steamcommunity.com/sharedfiles/filedetails/?id=1627986403"
+    },
+    {
+        "_id": "686588890",
+        "title": "Automatic Emptying: Extended",
+        "url": "https://steamcommunity.com/sharedfiles/filedetails/?id=686588890",
+        "issue": "Dead, broken, cannot empty at all",
+        "replacementTitle": "Empty It!",
+        "replacementUrl": "https://steamcommunity.com/sharedfiles/filedetails/?id=1661072176"
+    }
+
+]
