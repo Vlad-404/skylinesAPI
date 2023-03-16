@@ -4,7 +4,7 @@ const app = express();
 
 // Routes
 app.get('/', (req, res, next) => {
-    res.send('<h2>Server operational</h2>')
+    res.send('<h2>API is online</h2>')
 })
 
 app.listen(3000, () => {console.log('Server running')});
