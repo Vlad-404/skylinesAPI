@@ -1,0 +1,24 @@
+{
+  "name": "skylinesapi",
+  "version": "1.0.0",
+  "description": "API for problematic mods for the game Cities: Skylines",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Vlad-404/skylinesAPI.git"
+  },
+  "keywords": [
+    "Skylines",
+    "api",
+    "mods"
+  ],
+  "author": "ne0n",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Vlad-404/skylinesAPI/issues"
+  },
+  "homepage": "https://github.com/Vlad-404/skylinesAPI#readme"
+}
