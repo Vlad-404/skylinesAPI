@@ -10,4 +10,8 @@ router
     .get(broken.getBroken)
     .post(broken.addBroken)
 
+router
+    .route('/:id')
+    .delete(broken.deleteBroken)
+
 module.exports = router;

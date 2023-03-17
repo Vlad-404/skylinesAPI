@@ -10,18 +10,31 @@ exports.getBroken = (req, res, next) => {
     })
 }
 
-
 // @desc    Add broken mod
 // @route   POST /broken
 // @access  Private
 exports.addBroken = async (req, res, next) => {
-    // const modData = await req.body;
+    const modData = await req.body;
 
-    const mod = await Broken.create(req.body)
+    // const mod = await Broken.create(modData)
 
     res.status(200).json({
         success: true,
         msg: 'Mod successfully added',
-        data: mod
+        data: modData
+    })
+}
+
+// @desc    Delete broken mod
+// @route   DELETE /broken/:id
+// @access  Private
+exports.deleteBroken = async (req, res, next) => {
+    const modId = await req.params.id
+
+    const mod = await Broken.findByIdAndDelete(modId)
+
+    res.status(200).json({
+        success: true,
+        msg: `Mod ${modId} successfully deleted`
     })
 }
