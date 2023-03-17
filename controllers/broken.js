@@ -23,7 +23,7 @@ exports.getOneBroken = async (req, res, next) => {
     if(!mod) {
         return res.status(404).json({
             success: false,
-            msg: `A mod with ID of '${req.params.id}' doesn't exist. Please check your request.`
+            msg: `A mod with ID of '${req.params.id}' doesn't exist in this database. Please check your request.`
         })
     }
 

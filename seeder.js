@@ -12,9 +12,7 @@ dotenv.config({ path: './config/config.env' });
 const Broken = require('./models/Broken');
 
 // Connect to DB
-mongoose.connect(process.env.MONGO_URI, {
-  useNewUrlParser: true
-});
+mongoose.connect(process.env.MONGO_URI);
 
 // Read JSON files
 const broken = JSON.parse(
@@ -24,7 +22,9 @@ const broken = JSON.parse(
 // Import into DB
 const importData = async () => {
     try {
-      await Broken.create(broken)
+      await Broken.create(broken, {
+        validateBeforeSave: false
+      })
       console.log('Data Imported...')
       process.exit()
     } catch (err) {

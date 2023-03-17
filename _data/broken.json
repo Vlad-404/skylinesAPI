@@ -4,7 +4,7 @@
         "title": "[ARIS] Early Death",
         "url": "https://steamcommunity.com/sharedfiles/filedetails/?id=421188880",
         "issue": "Dead, breaks game",
-        "replacements":""
+        "replacements":[]
     },
     {
         "_id": "439582006",
@@ -18,22 +18,21 @@
         "title": "[ARIS] Enhanced Hearse AI",
         "url": "https://steamcommunity.com/sharedfiles/filedetails/?id=433249875",
         "issue": "Dead, breaks game",
-        "replacements": ""
+        "replacements":[]
     },
     {
         "_id": "421050717",
         "title": "[ARIS] Remove Cows",
         "url": "https://steamcommunity.com/sharedfiles/filedetails/?id=421050717",
         "issue": "Dead, breaks game",
-        "replacements": ""
+        "replacements":[]
     },
     {
         "_id": "421052798",
         "title": "[ARIS] Remove Pigs",
         "url": "https://steamcommunity.com/sharedfiles/filedetails/?id=421052798",
         "issue": "Dead, breaks game",
-        "replacementTitle": "",
-        "replacementUrl": ""
+        "replacements":[]
     },
     {
         "_id": "421041154",
@@ -66,7 +65,7 @@
         "title": "[ARIS] Skylines Overwatch",
         "url": "https://steamcommunity.com/sharedfiles/filedetails/?id=421028969",
         "issue": "Dead, breaks game",
-        "replacements": ""
+        "replacements":[]
     },
     {
         "_id": "576327847",
@@ -148,8 +147,7 @@
         "title": "Advanced Building Editor",
         "url": "https://steamcommunity.com/sharedfiles/filedetails/?id=790347696",
         "issue": "Broken",
-        "replacementTitle": "",
-        "replacementUrl": ""
+        "replacements":[]
     },
     {
         "_id": "1647686914",
@@ -208,14 +206,14 @@
         "title": "Aedificium",
         "url": "removed",
         "issue": "Dead, broken",
-        "replacements": ""
+        "replacements":[]
     },
     {
         "_id": "1452259306",
         "title": "Aedificium RELOADED",
         "url": "removed",
         "issue": "Dead, broken",
-        "replacements": ""
+        "replacements":[]
     },
     {
         "_id": "616078328",
@@ -235,14 +233,14 @@
         "title": "AllowIntercityTrains v1.2",
         "url": "https://steamcommunity.com/sharedfiles/filedetails/?id=2784268275",
         "issue": "Obsolete, Broken, Added to base game",
-        "replacements": ""
+        "replacements": []
     },
     {
         "_id": "474652684",
         "title": "Asset Prefab(+Building) AI Changer",
         "url": "https://steamcommunity.com/sharedfiles/filedetails/?id=474652684",
         "issue": "Broken",
-        "replacements": ""
+        "replacements": []
     },
     {
         "_id": "408760323",
