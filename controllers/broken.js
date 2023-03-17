@@ -3,10 +3,13 @@ const Broken = require('../models/Broken.js')
 // @desc    Get all broken mods
 // @route   GET /broken
 // @access  Public
-exports.getBroken = (req, res, next) => {
+exports.getBroken = async (req, res, next) => {
+    const mods = await Broken.find()
+
     res.status(200).json({
         success: true,
-        msg: 'Route to get all broken mods works!'
+        msg: 'Successfully fetched the list of broken mods!',
+        data: mods
     })
 }
 
@@ -36,7 +39,7 @@ exports.addBroken = async (req, res, next) => {
 
 // @desc    Modify a broken mod
 // @route   PUT /broken/:id
-// @access  Public
+// @access  Private
 exports.updateBroken = async (req, res, next) => {
     const modData = await req.body
     const modId = req.params.id
