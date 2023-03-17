@@ -16,9 +16,18 @@ exports.getBroken = (req, res, next) => {
 exports.addBroken = async (req, res, next) => {
     const modData = await req.body;
 
-    // const mod = await Broken.create(modData)
+    const exists = await Broken.findById(modData._id)
 
-    res.status(200).json({
+    if(exists) {
+        res.status(409).json({
+            success: false,
+            msg: `A mod with ID of '${modData._id}' already exists. Try editing the data instead.`
+        })
+    }
+
+    const mod = await Broken.create(modData)
+
+    res.status(201).json({
         success: true,
         msg: 'Mod successfully added',
         data: modData
