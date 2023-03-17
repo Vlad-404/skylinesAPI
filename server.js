@@ -1,11 +1,17 @@
 const dotenv = require('dotenv');
 const express = require('express');
+// Utility imports
 const morgan = require('morgan');
+
+// DB import
+const connectDb = require('./config/db.js');
 
 // Load environmental variables
 dotenv.config({
     path: './config/config.env'
 });
+
+connectDb();
 
 // Route files
 const broken = require('./routes/broken');
