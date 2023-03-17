@@ -9,6 +9,7 @@ exports.getBroken = async (req, res, next) => {
     res.status(200).json({
         success: true,
         msg: 'Successfully fetched the list of broken mods!',
+        count: mods.length,
         data: mods
     })
 }
