@@ -17,6 +17,9 @@ if(process.env.NODE_ENV === 'development') {
     app.use(morgan('dev'))
 }
 
+// Body parser
+app.use(express.json())
+
 // Set static folder
 app.use(express.static('public'))
 

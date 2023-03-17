@@ -15,8 +15,10 @@ exports.getBroken = (req, res, next) => {
 // @route   POST /broken
 // @access  Private
 exports.addBroken = (req, res, next) => {
+    const mod = req.body
     res.status(200).json({
         success: true,
-        msg: 'Route for add a broken mod works!'
+        msg: 'Mod successfully added',
+        data: mod
     })
 }
