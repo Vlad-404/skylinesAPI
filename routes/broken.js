@@ -12,6 +12,7 @@ router
 
 router
     .route('/:id')
+    .get(broken.getOneBroken)
     .put(broken.updateBroken)
     .delete(broken.deleteBroken)
 

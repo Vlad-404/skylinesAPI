@@ -13,6 +13,26 @@ exports.getBroken = async (req, res, next) => {
     })
 }
 
+// @desc    Get a single mod
+// @route   GET /broken/:id
+// @access  Public
+exports.getOneBroken = async (req, res, next) => {
+    const mod = await Broken.findById(req.params.id)
+
+    if(!mod) {
+        return res.status(404).json({
+            success: false,
+            msg: `A mod with ID of '${req.params.id}' doesn't exist. Please check your request.`
+        })
+    }
+
+    res.status(200).json({
+        success: true,
+        msg: 'Mod successfully fetched!',
+        data: mod
+    })
+}
+
 // @desc    Add broken mod
 // @route   POST /broken
 // @access  Private
@@ -22,9 +42,9 @@ exports.addBroken = async (req, res, next) => {
     const exists = await Broken.findById(modData._id)
 
     if(exists) {
-        res.status(409).json({
+        return res.status(409).json({
             success: false,
-            msg: `A mod with ID of '${modData._id}' already exists. Try editing the data instead.`
+            msg: `Cannot add. A mod with ID of '${modData._id}' already exists. Try editing the data instead.`
         })
     }
 
@@ -46,7 +66,7 @@ exports.updateBroken = async (req, res, next) => {
     let mod = await Broken.findById(modId)
 
     if(!mod) {
-        res.status(404).json({
+        return res.status(404).json({
             success: false,
             msg: `A mod with ID of '${modId}' doesn't exist. Please check your request.`
         })
@@ -71,6 +91,13 @@ exports.deleteBroken = async (req, res, next) => {
     const modId = await req.params.id
 
     const mod = await Broken.findByIdAndDelete(modId)
+
+    if(!mod) {
+        return res.status(404).json({
+            success: false,
+            msg: `A mod with ID of '${modId}' doesn't exist. Please check your request.`
+        })
+    }
 
     res.status(200).json({
         success: true,
