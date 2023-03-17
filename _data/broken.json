@@ -84,8 +84,13 @@
         "title": "81 Tiles Updated",
         "url": "https://steamcommunity.com/sharedfiles/filedetails/?id=422554572",
         "issue": "Dead, breaks game",
-        "replacementTitle": "81 Tiles 2 TESTING",
-        "replacementUrl": "https://steamcommunity.com/sharedfiles/filedetails/?id=2862121823"
+        "replacements":[
+            {
+                "_id": 2862121823,
+                "replacementTitle": "81 Tiles 2 TESTING",
+                "replacementUrl": "https://steamcommunity.com/sharedfiles/filedetails/?id=2862121823"
+            }
+        ]
     },
     {
         "_id": "41444491969",
@@ -100,8 +105,18 @@
         "title": "Adjustable Demand v2",
         "url": "https://steamcommunity.com/sharedfiles/filedetails/?id=412168106",
         "issue": "Dead, broken, errors",
-        "replacementTitle": ["Infinite Demand", "Game Anarchy"],
-        "replacementUrl": ["https://steamcommunity.com/sharedfiles/filedetails/?id=1522785644", "https://steamcommunity.com/sharedfiles/filedetails/?id=2781804786"]
+        "replacements": [
+            {	
+                "_id": 1522785644,
+                "replacementTitle": "Infinite Demand",
+                "replacementUrl": "https://steamcommunity.com/sharedfiles/filedetails/?id=1522785644"
+            },
+            {
+                "_id": 2781804786,
+                "replacementTitle": "Game Anarchy",
+                "replacementUrl": "https://steamcommunity.com/sharedfiles/filedetails/?id=2781804786"
+            }
+        ]
     },
     {
         "_id": "790347696",

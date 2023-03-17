@@ -12,6 +12,7 @@ router
 
 router
     .route('/:id')
+    .put(broken.updateBroken)
     .delete(broken.deleteBroken)
 
 module.exports = router;

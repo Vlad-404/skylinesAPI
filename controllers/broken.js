@@ -34,6 +34,33 @@ exports.addBroken = async (req, res, next) => {
     })
 }
 
+// @desc    Modify a broken mod
+// @route   PUT /broken/:id
+// @access  Public
+exports.updateBroken = async (req, res, next) => {
+    const modData = await req.body
+    const modId = req.params.id
+    let mod = await Broken.findById(modId)
+
+    if(!mod) {
+        res.status(404).json({
+            success: false,
+            msg: `A mod with ID of '${modId}' doesn't exist. Please check your request.`
+        })
+    }
+
+    mod = await Broken.findByIdAndUpdate(modId, modData, {
+        new: true,
+        runValidators: true
+    })
+    
+    res.status(200).json({
+        success: true,
+        msg: `Mod with ID of '${modId}' successfully updated!`,
+        data: mod
+    })
+}
+
 // @desc    Delete broken mod
 // @route   DELETE /broken/:id
 // @access  Private

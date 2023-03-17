@@ -20,20 +20,13 @@ const BrokenSchema = new mongoose.Schema({
         required: [true, 'Please add a short description what is wrong with the mod'],
         maxLength: [50, 'Description cannot be more than 50 characters']
     },
-    replacements: [ 
+    replacements: [
         {
-            replacementTitle: {
-                type: String,
-                maxLength: [50, 'Title cannot be more than 50 characters']
-        },
-            replacementUrl: {
-                type: String,
-                match: [
-                    /https?:\/\/(www\.)?[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_\+.~#?&//=]*)/,
-                    'Please use a valid URL with HTTP or HTTPS'
-                ]
+            _id: Number,
+            replacementTitle: String,
+            replacementUrl: String
         }
-    }]
+    ]
 })
 
 module.exports = mongoose.model('Broken', BrokenSchema);
