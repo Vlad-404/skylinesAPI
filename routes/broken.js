@@ -1,5 +1,11 @@
 const express = require('express');
-const broken = require('../controllers/broken');
+const {
+    getBroken,
+    getOneBroken,
+    addBroken,
+    updateBroken,
+    deleteBroken
+ } = require('../controllers/broken');
 
 // const Broken = require('../models/Broken')
 
@@ -7,13 +13,13 @@ const router = express.Router();
 
 router
     .route('/')
-    .get(broken.getBroken)
-    .post(broken.addBroken)
+    .get(getBroken)
+    .post(addBroken)
 
 router
     .route('/:id')
-    .get(broken.getOneBroken)
-    .put(broken.updateBroken)
-    .delete(broken.deleteBroken)
+    .get(getOneBroken)
+    .put(updateBroken)
+    .delete(deleteBroken)
 
 module.exports = router;
