@@ -12,42 +12,45 @@ When the basic api features are implemented, the documentation will be available
 - Collections: Broken mods, Incompatible mods, Game breaking assets, Dependency mods for savegames and Latest patch issues.
 - Basic queries: getAll, getSingle, public routes
 - Advanced queries by mod creator, size, first added on,...
+- Limit access to private routes
+## Routes
 
 Entry point: ` {{ DOMAIN }}/skylinesapi/ `
 
-## Features:
+From there, the following routes will be available:
+
 
 | Name/description | Method | Availability | Route | Implemented | Tested |
 |      :--         |  :--- |     :---    | :---  |    :---:    | :---:  |
-| Landing page as documentation|  GET | Public | `/` |   [x]   | [-] |
+| Landing page as documentation|  GET | Public | `/` |   ☑   | ☒ |
 | **Broken mods section** |
-| Get all      | GET | Public | `/broken/` |   [x]   | [-] |
-| Add          | POST| Private | `/broken/` |   [x]   | [-] |
-| Edit         | PUT | Private | `/broken/:id` |   [x]   | [-] |
-| Delete       | DELETE | Private | `/broken/:id` |   [x]   | [-] |
+| Get all      | GET | Public | `/broken` |   ☑   | ☒ |
+| Add          | POST| Private | `/broken` |   ☑   | ☒ |
+| Edit         | PUT | Private | `/broken/:id` |   ☑   | ☒ |
+| Delete       | DELETE | Private | `/broken/:id` |   ☑   | ☒ |
 | **Incompatible mods** |
-| Get all      | GET | Public | `/incompatible/` |   [-]   | [-] |
-| Get single   | GET | Public | `/incompatible/:id` |   [-]   | [-] |
-| Add          | POST| Private | `/incompatible/` |   [-]   | [-] |
-| Edit         | PUT | Private | `/incompatible/:id` |   [-]   | [-] |
-| Delete       | DELETE | Private | `/incompatible/:id` |   [-]   | [-] |
+| Get all      | GET | Public | `/incompatible` |   ☒   | ☒ |
+| Get single   | GET | Public | `/incompatible/:id` |   ☒   | ☒ |
+| Add          | POST| Private | `/incompatible` |   ☒   | ☒ |
+| Edit         | PUT | Private | `/incompatible/:id` |   ☒   | ☒ |
+| Delete       | DELETE | Private | `/incompatible/:id` |   ☒   | ☒ |
 | **Game breaking assets** |
-| Get all      | GET | Public | `/gamebreaking/` |   [-]   | [-] |
-| Get single   | GET | Public | `/gamebreaking/:id` |   [-]   | [-] |
-| Add          | POST| Private | `/gamebreaking/` |   [-]   | [-] |
-| Edit         | PUT | Private | `/gamebreaking/:id` |   [-]   | [-] |
-| Delete       | DELETE | Private | `/gamebreaking/:id` |   [-]   | [-] |
+| Get all      | GET | Public | `/gamebreaking` |   ☒   | ☒ |
+| Get single   | GET | Public | `/gamebreaking/:id` |   ☒   | ☒ |
+| Add          | POST| Private | `/gamebreaking` |   ☒   | ☒ |
+| Edit         | PUT | Private | `/gamebreaking/:id` |   ☒   | ☒ |
+| Delete       | DELETE | Private | `/gamebreaking/:id` |   ☒   | ☒ |
 | **Dependency for savegames** |
-| Get all      | GET | Public | `/savebreaking/` |   [-]   | [-] |
-| Add          | POST| Private | `/savebreaking/` |   [-]   | [-] |
-| Edit         | PUT | Private | `/savebreaking/:id` |   [-]   | [-] |
-| Delete       | DELETE | Private | `/savebreaking/:id` |   [-]   | [-] |
+| Get all      | GET | Public | `/savebreaking` |   ☒   | ☒ |
+| Add          | POST| Private | `/savebreaking` |   ☒   | ☒ |
+| Edit         | PUT | Private | `/savebreaking/:id` |   ☒   | ☒ |
+| Delete       | DELETE | Private | `/savebreaking/:id` |   ☒   | ☒ |
 | **Latest patch issues** |
-| Get all      | GET | Public | `/savebreaking/` |   [-]   | [-] |
-| Add          | POST| Private | `/savebreaking/` |   [-]   | [-] |
-| Edit         | PUT | Private | `/savebreaking/:id` |   [-]   | [-] |
-| Delete       | DELETE | Private | `/savebreaking/:id` |   [-]   | [-] |
+| Get all      | GET | Public |     `/patch` |   ☒   | ☒ |
+| Add          | POST| Private |    `/patch` |   ☒   | ☒ |
+| Edit         | PUT | Private |    `/patch/:id` |   ☒   | ☒ |
+| Delete       | DELETE | Private | `/patch/:id` |   ☒   | ☒ |
 
+## Sorting
 
-
-More to be added...
+Sorting will also be possible. More details will be available when more documentation is generated.
