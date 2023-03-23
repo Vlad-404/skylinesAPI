@@ -22,7 +22,7 @@ const BrokenSchema = new mongoose.Schema({
     },
     replacements: [
         {
-            _id: Number,
+            _id: false,
             replacementTitle: String,
             replacementUrl: String
         }
