@@ -2,7 +2,7 @@ const mongoose = require('mongoose')
 
 const BrokenSchema = new mongoose.Schema({
     _id: {
-        type: String,
+        type: Number,
         required: [true, 'Please add the SteamID of the mod'],
         maxLength: [12, 'ID cannot be more than 12 characters']
     },

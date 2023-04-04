@@ -20,6 +20,16 @@ exports.getBroken = async (req, res, next) => {
 // @route   GET /broken/:id
 // @access  Public
 exports.getOneBroken = async (req, res, next) => {
+    // Checks if ID is a number
+    if(isNaN(req.params.id)) {
+        return next(
+            new ErrorResponse(
+                `A mod with ID of '${req.params.id}' isn't properly formatted!`,
+                404
+            )
+        )
+    }
+
     const mod = await Broken.findById(req.params.id)
 
     if(!mod) {
@@ -68,6 +78,16 @@ exports.addBroken = async (req, res, next) => {
 // @route   PUT /broken/:id
 // @access  Private
 exports.updateBroken = async (req, res, next) => {
+    // Checks if ID is a number
+    if(isNaN(req.params.id)) {
+        return next(
+            new ErrorResponse(
+                `A mod with ID of '${req.params.id}' isn't properly formatted!`,
+                404
+            )
+        )
+    }
+
     const modData = await req.body
     const modId = req.params.id
     let mod = await Broken.findById(modId)
@@ -97,6 +117,16 @@ exports.updateBroken = async (req, res, next) => {
 // @route   DELETE /broken/:id
 // @access  Private
 exports.deleteBroken = async (req, res, next) => {
+    // Checks if ID is a number
+    if(isNaN(req.params.id)) {
+        return next(
+            new ErrorResponse(
+                `A mod with ID of '${req.params.id}' isn't properly formatted!`,
+                404
+            )
+        )
+    }
+    
     const modId = await req.params.id
 
     const mod = await Broken.findByIdAndDelete(modId)
