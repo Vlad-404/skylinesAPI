@@ -1,6 +1,7 @@
 const dotenv = require('dotenv');
 const express = require('express');
 // Utility imports
+const errorHandler = require('./middleware/error.js')
 const morgan = require('morgan');
 
 // DB import
@@ -31,6 +32,7 @@ app.use(express.static('public'))
 
 // Mount Routes
 app.use('/broken', broken);
+app.use(errorHandler);
 
 // Error handling
 // 404

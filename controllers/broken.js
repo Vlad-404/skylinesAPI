@@ -1,3 +1,5 @@
+const ErrorResponse = require('../utils/errorResponse.js')
+
 const Broken = require('../models/Broken.js')
 
 // @desc    Get all broken mods
@@ -21,10 +23,12 @@ exports.getOneBroken = async (req, res, next) => {
     const mod = await Broken.findById(req.params.id)
 
     if(!mod) {
-        return res.status(404).json({
-            success: false,
-            msg: `A mod with ID of '${req.params.id}' doesn't exist in this database. Please check your request.`
-        })
+        return next(
+            new ErrorResponse(
+                `A mod with ID of '${req.params.id}' doesn't exist in this database. Please check your request.`,
+                404
+            )
+        )
     }
 
     res.status(200).json({
@@ -43,10 +47,12 @@ exports.addBroken = async (req, res, next) => {
     const exists = await Broken.findById(modData._id)
 
     if(exists) {
-        return res.status(409).json({
-            success: false,
-            msg: `Cannot add. A mod with ID of '${modData._id}' already exists. Try editing the data instead.`
-        })
+        return next(
+            new ErrorResponse(
+                `Cannot add. A mod with ID of '${modData._id}' already exists. Try editing the data instead.`,
+                409
+            )
+        )
     }
 
     const mod = await Broken.create(modData)
@@ -67,10 +73,12 @@ exports.updateBroken = async (req, res, next) => {
     let mod = await Broken.findById(modId)
 
     if(!mod) {
-        return res.status(404).json({
-            success: false,
-            msg: `A mod with ID of '${modId}' doesn't exist. Please check your request.`
-        })
+        return next(
+            new ErrorResponse(
+                `A mod with ID of '${modId}' doesn't exist. Please check your request.`,
+                404
+            )
+        )
     }
 
     mod = await Broken.findByIdAndUpdate(modId, modData, {
@@ -94,10 +102,12 @@ exports.deleteBroken = async (req, res, next) => {
     const mod = await Broken.findByIdAndDelete(modId)
 
     if(!mod) {
-        return res.status(404).json({
-            success: false,
-            msg: `A mod with ID of '${modId}' doesn't exist. Please check your request.`
-        })
+        return next(
+            new ErrorResponse(
+                `A mod with ID of '${modId}' doesn't exist. Please check your request.`,
+                404
+            )
+        )
     }
 
     res.status(200).json({
