@@ -1,9 +1,22 @@
-const errorHandler = (err, req, res, next) => {
+const ErrorResponse = require('../utils/errorResponse');
 
-    res.status(err.statusCode || 500).json({
+const errorHandler = (err, req, res, next) => {
+    let error = { ...err };
+
+    error.message = err.message;
+
+    console.log('Console logging the error: ', err)
+
+    // Mongoose bad ObjectId
+    if (err.name === 'CastError') {
+        const message = `Resource not found`;
+        error = new ErrorResponse(message, 404);
+    };
+    
+    res.status(error.statusCode || 500).json({
         success: false,
-        message: err.message || 'Server error'
+        message: error.message || 'Server error'
     })
-}
+};
 
 module.exports = errorHandler;
