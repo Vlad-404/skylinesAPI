@@ -21,14 +21,14 @@ exports.getBroken = async (req, res, next) => {
 // @access  Public
 exports.getOneBroken = async (req, res, next) => {
     // Checks if ID is a number
-    if(isNaN(req.params.id)) {
-        return next(
-            new ErrorResponse(
-                `A mod with ID of '${req.params.id}' isn't properly formatted!`,
-                404
-            )
-        )
-    }
+    // if(isNaN(req.params.id)) {
+    //     return next(
+    //         new ErrorResponse(
+    //             `A mod with ID of '${req.params.id}' isn't properly formatted!`,
+    //             404
+    //         )
+    //     )
+    // }
 
     const mod = await Broken.findById(req.params.id)
 
