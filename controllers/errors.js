@@ -8,7 +8,7 @@ exports.checkId = (req, res, next) => {
         return next(
             new ErrorResponse(
                 `A mod with ID of '${req.params.id}' isn't properly formatted!`,
-                404
+                400
             )
         )
     }

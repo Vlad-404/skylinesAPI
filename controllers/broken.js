@@ -65,8 +65,6 @@ exports.addBroken = async (req, res, next) => {
         )
     }
 
-    const mod = await Broken.create(modData)
-
     res.status(201).json({
         success: true,
         msg: 'Mod successfully added',
@@ -80,6 +78,17 @@ exports.addBroken = async (req, res, next) => {
 exports.updateBroken = async (req, res, next) => {
     const modData = await req.body
     const modId = req.params.id
+
+    // Checks if the ID has changed and if ID is a number
+    if (modData._id) {
+        return next(
+            new ErrorResponse(
+                `You cannot change the mod ID!`,
+                400
+            )
+        )
+    }
+
     let mod = await Broken.findById(modId)
 
     if(!mod) {
