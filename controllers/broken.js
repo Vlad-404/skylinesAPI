@@ -6,15 +6,8 @@ const Broken = require('../models/Broken.js')
 // @route   GET /broken
 // @access  Public
 exports.getBroken = async (req, res, next) => {
-    const mods = await Broken.find()
-
-    res.status(200).json({
-        success: true,
-        msg: 'Successfully fetched the list of broken mods!',
-        count: mods.length,
-        data: mods
-    })
-}
+    res.status(200).json(res.advancedResults);
+};
 
 // @desc    Get a single mod
 // @route   GET /broken/:id

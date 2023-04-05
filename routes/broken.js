@@ -7,13 +7,14 @@ const {
     deleteBroken
  } = require('../controllers/broken');
 
-// const Broken = require('../models/Broken')
+const advancedResults = require('../middleware/advancedResults.js')
+const Broken = require('../models/Broken')
 
 const router = express.Router();
 
 router
     .route('/')
-    .get(getBroken)
+    .get(advancedResults(Broken), getBroken)
     .post(addBroken)
 
 router
