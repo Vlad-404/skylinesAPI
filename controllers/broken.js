@@ -20,16 +20,6 @@ exports.getBroken = async (req, res, next) => {
 // @route   GET /broken/:id
 // @access  Public
 exports.getOneBroken = async (req, res, next) => {
-    // Checks if ID is a number
-    // if(isNaN(req.params.id)) {
-    //     return next(
-    //         new ErrorResponse(
-    //             `A mod with ID of '${req.params.id}' isn't properly formatted!`,
-    //             404
-    //         )
-    //     )
-    // }
-
     const mod = await Broken.findById(req.params.id)
 
     if(!mod) {
@@ -53,6 +43,16 @@ exports.getOneBroken = async (req, res, next) => {
 // @access  Private
 exports.addBroken = async (req, res, next) => {
     const modData = await req.body;
+
+    // checks if the ID is a number
+    if (isNaN(modData._id)) {
+        return next(
+            new ErrorResponse(
+                `ID provided isn't properly formatted. Please use numbers only!`,
+                400
+            )
+        )
+    }
 
     const exists = await Broken.findById(modData._id)
 
@@ -78,16 +78,6 @@ exports.addBroken = async (req, res, next) => {
 // @route   PUT /broken/:id
 // @access  Private
 exports.updateBroken = async (req, res, next) => {
-    // Checks if ID is a number
-    if(isNaN(req.params.id)) {
-        return next(
-            new ErrorResponse(
-                `A mod with ID of '${req.params.id}' isn't properly formatted!`,
-                404
-            )
-        )
-    }
-
     const modData = await req.body
     const modId = req.params.id
     let mod = await Broken.findById(modId)
@@ -116,17 +106,7 @@ exports.updateBroken = async (req, res, next) => {
 // @desc    Delete broken mod
 // @route   DELETE /broken/:id
 // @access  Private
-exports.deleteBroken = async (req, res, next) => {
-    // Checks if ID is a number
-    if(isNaN(req.params.id)) {
-        return next(
-            new ErrorResponse(
-                `A mod with ID of '${req.params.id}' isn't properly formatted!`,
-                404
-            )
-        )
-    }
-    
+exports.deleteBroken = async (req, res, next) => {    
     const modId = await req.params.id
 
     const mod = await Broken.findByIdAndDelete(modId)
