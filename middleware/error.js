@@ -9,9 +9,15 @@ const errorHandler = (err, req, res, next) => {
 
     // Mongoose bad ObjectId
     if (err.name === 'CastError') {
-        const message = `Resource not found`;
+        const message = 'One of your values is not formatted properly! Please check the fields.';
         error = new ErrorResponse(message, 404);
     };
+
+    // Mongoose validation error
+    if (err.name === 'ValidationError') {
+        const message = Object.values(err.errors).map(val => val.message);
+        error = new ErrorResponse(message, 400);
+    }
     
     res.status(error.statusCode || 500).json({
         success: false,

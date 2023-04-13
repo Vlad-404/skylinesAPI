@@ -1,4 +1,5 @@
 const ErrorResponse = require('../utils/errorResponse.js')
+const asyncHandler = require('../middleware/async.js')
 
 const Broken = require('../models/Broken.js')
 
@@ -12,7 +13,7 @@ exports.getBroken = async (req, res, next) => {
 // @desc    Get a single mod
 // @route   GET /broken/:id
 // @access  Public
-exports.getOneBroken = async (req, res, next) => {
+exports.getOneBroken = asyncHandler(async (req, res, next) => {
     const mod = await Broken.findById(req.params.id)
 
     if(!mod) {
@@ -29,23 +30,13 @@ exports.getOneBroken = async (req, res, next) => {
         msg: 'Mod successfully fetched!',
         data: mod
     })
-}
+})
 
 // @desc    Add broken mod
 // @route   POST /broken
 // @access  Private
-exports.addBroken = async (req, res, next) => {
+exports.addBroken = asyncHandler(async (req, res, next) => {
     const modData = await req.body;
-
-    // checks if the ID is a number
-    if (isNaN(modData._id)) {
-        return next(
-            new ErrorResponse(
-                `ID provided isn't properly formatted. Please use numbers only!`,
-                400
-            )
-        )
-    }
 
     const exists = await Broken.findById(modData._id)
 
@@ -58,29 +49,31 @@ exports.addBroken = async (req, res, next) => {
         )
     }
 
+    const addedMod = await Broken.create(modData)
+
     res.status(201).json({
         success: true,
         msg: 'Mod successfully added',
-        data: modData
+        data: addedMod
     })
-}
+})
 
 // @desc    Modify a broken mod
 // @route   PUT /broken/:id
 // @access  Private
-exports.updateBroken = async (req, res, next) => {
+exports.updateBroken = asyncHandler(async (req, res, next) => {
     const modData = await req.body
     const modId = req.params.id
 
     // Checks if the ID has changed and if ID is a number
-    if (modData._id) {
-        return next(
-            new ErrorResponse(
-                `You cannot change the mod ID!`,
-                400
-            )
-        )
-    }
+    // if (modData._id) {
+    //     return next(
+    //         new ErrorResponse(
+    //             `You cannot change the mod ID!`,
+    //             400
+    //         )
+    //     )
+    // }
 
     let mod = await Broken.findById(modId)
 
@@ -103,12 +96,12 @@ exports.updateBroken = async (req, res, next) => {
         msg: `Mod with ID of '${modId}' successfully updated!`,
         data: mod
     })
-}
+})
 
 // @desc    Delete broken mod
 // @route   DELETE /broken/:id
 // @access  Private
-exports.deleteBroken = async (req, res, next) => {    
+exports.deleteBroken = asyncHandler(async (req, res, next) => {    
     const modId = await req.params.id
 
     const mod = await Broken.findByIdAndDelete(modId)
@@ -126,4 +119,4 @@ exports.deleteBroken = async (req, res, next) => {
         success: true,
         msg: `Mod ${modId} successfully deleted`
     })
-}
+})

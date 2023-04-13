@@ -16,7 +16,6 @@ connectDb();
 
 // Route files
 const broken = require('./routes/broken');
-const errors = require('./routes/errors');
 const auth = require('./routes/auth');
 
 const app = express();
@@ -33,7 +32,6 @@ app.use(express.json())
 app.use(express.static('public'))
 
 // Mount Routes
-app.use('/broken', errors);
 app.use('/broken', broken);
 app.use('/auth', auth);
 app.use(errorHandler);
@@ -41,7 +39,7 @@ app.use(errorHandler);
 // Error handling
 // 404
 app.use((req, res, next) => {
-    res.status(404).send("Sorry can't find that!")
+    res.status(404).send("Sorry can't find that! Please check your request.")
   });
 
 const PORT = process.env.PORT || 5000;
