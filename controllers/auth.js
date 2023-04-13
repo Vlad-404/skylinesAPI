@@ -8,20 +8,28 @@ const User = require('../models/User.js')
 exports.registerUser = async (req, res, next) => {
     // const newUser = await req.body
     const { name, email, password, role } = req.body
+    try {
+        // User.create(newUser)
+        const user = await User.create({
+            name,
+            email,
+            password,
+            role
+        })
 
-    // User.create(newUser)
-    const user = await User.create({
-        name,
-        email,
-        password,
-        role
-    })
-
-    res.status(201).json({
-        success: true,
-        message: 'User created',
-        data: user
-    })
+        res.status(201).json({
+            success: true,
+            message: 'User created',
+            data: user
+        })
+    } catch(err) {
+        next(
+            new ErrorResponse(
+                `${err.message}`,
+                400
+            )
+        )
+    }
 }
 // Login User
 // Log out
