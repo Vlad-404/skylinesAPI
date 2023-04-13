@@ -3,13 +3,12 @@ const mongoose = require('mongoose')
 const BrokenSchema = new mongoose.Schema({
     _id: {
         type: Number,
-        required: [true, 'Please add the SteamID of the mod'],
-        max: [12, 'ID not formatted properly!']
+        required: [true, 'Please add the SteamID of the mod']
     },
     title:{
         type: String,
         required: [true, 'Please add a title of the mod'],
-        max: [50, 'Title cannot be more than 50 characters']
+        maxLength: [50, 'Title cannot be more than 50 characters']
     },
     url: {
         type: String,
@@ -18,7 +17,7 @@ const BrokenSchema = new mongoose.Schema({
     issue: {
         type: String,
         required: [true, 'Please add a short description what is wrong with the mod'],
-        max: [50, 'Description cannot be more than 50 characters']
+        maxLength: [50, 'Description cannot be more than 50 characters']
     },
     replacements: [
         {

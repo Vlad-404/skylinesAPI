@@ -37,6 +37,17 @@ exports.getOneBroken = asyncHandler(async (req, res, next) => {
 // @access  Private
 exports.addBroken = asyncHandler(async (req, res, next) => {
     const modData = await req.body;
+    const modId = modData._id
+
+    // Checks if the ID is between 6 and 12 characters
+    if(modId.toString().length < 6 || modId.toString().length > 12) {
+        return next(
+            new ErrorResponse(
+                'ID has to be between 6 and 12 characters!',
+                400
+            )
+        )
+    }
 
     const exists = await Broken.findById(modData._id)
 
