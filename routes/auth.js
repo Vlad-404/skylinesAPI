@@ -1,6 +1,7 @@
 const express = require('express')
 const {
-    registerUser
+    registerUser,
+    loginUser
 } = require('../controllers/auth.js')
 
 // const User = require('../models/User.js')
@@ -9,5 +10,6 @@ const {
 const router = express.Router()
 
 router.route('/register').post(registerUser)
+router.route('/login').post(loginUser)
 
 module.exports = router
