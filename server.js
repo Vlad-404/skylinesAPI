@@ -3,6 +3,7 @@ const express = require('express');
 // Utility imports
 const errorHandler = require('./middleware/error.js')
 const morgan = require('morgan');
+const cookieParser = require('cookie-parser');
 
 // DB import
 const connectDb = require('./config/db.js');
@@ -27,6 +28,9 @@ if(process.env.NODE_ENV === 'development') {
 
 // Body parser
 app.use(express.json())
+
+// Cookie parser
+app.use(cookieParser());
 
 // Set static folder
 app.use(express.static('public'))

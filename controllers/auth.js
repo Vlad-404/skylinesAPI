@@ -12,14 +12,7 @@ exports.registerUser = asyncHandler(async(req, res, next) => {
     // Create a user
     const user = await User.create(newUser);
 
-    // Create token
-    const token = user.getSignedJwtToken();
-
-    res.status(201).json({
-        success: true,
-        message: `User '${user.name}' created`,
-        token
-    });
+    sendTokenResponse(user, 201, res, 'registered.');
 });
 
 // @desc    Login user
@@ -63,14 +56,7 @@ exports.loginUser = asyncHandler(async(req, res, next) => {
         );
     };
 
-    // Create token
-    const token = user.getSignedJwtToken();
-
-    res.status(201).json({
-        success: true,
-        message: `User '${user.name}' logged in`,
-        token
-    });
+    sendTokenResponse(user, 200, res, 'logged in.');
 });
 
 // Log out
@@ -79,3 +65,26 @@ exports.loginUser = asyncHandler(async(req, res, next) => {
 // Update password
 // Forgot password
 // Password reset
+
+// Get token from model, create cookie and send response
+const sendTokenResponse = (user, statusCode, res, message) => {
+     // Create token
+     const token = user.getSignedJwtToken();
+
+     const options = {
+        expires: new Date(
+            Date.now() + process.env.JWT_COOKIE_EXPIRE * 24 * 60 * 60 * 1000,
+        ),
+        httpOnly: true
+     };
+
+     res
+        .status(statusCode)
+        .cookie('token', token, options)
+        .json({
+            success: true,
+            message: 'User ' + message,
+            token
+        });
+
+};
