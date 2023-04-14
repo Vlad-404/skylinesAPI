@@ -1,5 +1,6 @@
 const mongoose = require('mongoose');
 const bcrypt = require('bcryptjs');
+const jwt = require('jsonwebtoken');
 
 const UserSchema = new mongoose.Schema({
     name:{
@@ -38,9 +39,19 @@ const UserSchema = new mongoose.Schema({
 });
 
 // Encrypt password using bcryptjs
+// Code from bcrypt website(https://www.npmjs.com/package/bcrypt#user-content-to-hash-a-password-1)
 UserSchema.pre('save', async function(next) {
     const salt = await bcrypt.genSaltSync(10);
     this.password = await bcrypt.hashSync(this.password, salt);
 })
+
+// Sign JWT and return
+// More on: https://github.com/auth0/node-jsonwebtoken
+// Method is used on the currently logged in user
+UserSchema.methods.getSignedJwtToken = function() {
+    return jwt.sign({ id: this._id }, process.env.JWT_SECRET, {
+        expiresIn: process.env.JWT_EXPIRE
+    });
+};
 
 module.exports = mongoose.model('User', UserSchema);
