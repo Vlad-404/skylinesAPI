@@ -9,7 +9,7 @@ const errorHandler = (err, req, res, next) => {
 
     // Mongoose bad ObjectId
     if (err.name === 'CastError') {
-        const message = 'One of your values is not formatted properly! Please check the fields.';
+        const message = 'Your ID is not formatted properly!';
         error = new ErrorResponse(message, 404);
     };
 
