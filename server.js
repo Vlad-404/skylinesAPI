@@ -38,6 +38,9 @@ app.use(express.static('public'))
 // Mount Routes
 app.use('/broken', broken);
 app.use('/auth', auth);
+app.use('/', (req, res, next) => {
+    res.sendFile('./public/index.html');
+});
 app.use(errorHandler);
 
 // Error handling

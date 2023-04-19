@@ -20,7 +20,7 @@ exports.protect = asyncHandler(async(req, res, next) => {
     // Make sure token exists
     if(!token) {
         return next(new ErrorResponse(
-            'Account not authorized for this operation',
+            'No user or account not authorized for this operation',
             401
         ));
     };
@@ -34,7 +34,7 @@ exports.protect = asyncHandler(async(req, res, next) => {
         next();
     } catch (err) {
         return next(new ErrorResponse(
-            'Account not authorized for this operation',
+            'No user or account not authorized for this operation',
             401
         ));
     }
