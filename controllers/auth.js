@@ -61,6 +61,18 @@ exports.loginUser = asyncHandler(async(req, res, next) => {
 
 // Log out
 // Get current user(self)
+// @desc    Get current user(self)
+// @route   GET /auth/me
+// @access  Private
+exports.getMe = asyncHandler(async(req, res, next) => {
+    const user = await User.findById(req.user.id);
+
+    res.status(200).json({
+        success: true,
+        message: `Currently logged in user: ${req.user.name}`,
+        data: user
+    });
+});
 // Update details
 // Update password
 // Forgot password
