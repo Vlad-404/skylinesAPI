@@ -29,11 +29,9 @@ exports.protect = asyncHandler(async(req, res, next) => {
         // Verify the token
         const decoded = jwt.verify(token, process.env.JWT_SECRET);
 
-        console.log(decoded);
-
         req.user = await User.findById(decoded.id);
 
-        next()
+        next();
     } catch (err) {
         return next(new ErrorResponse(
             'Account not authorized for this operation',
@@ -41,3 +39,18 @@ exports.protect = asyncHandler(async(req, res, next) => {
         ));
     }
 });
+
+// Grant access to specific roles
+exports.authorize = (...roles) => {
+    return (req, res, next) => {
+        if (!roles.includes(req.user.role)) {
+            return next(
+                new ErrorResponse(
+                    `Account role of '${req.user.role}' not authorized for this operation`,
+                    403
+                )
+            );
+        }
+        next();
+    }
+};

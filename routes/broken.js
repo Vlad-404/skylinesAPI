@@ -12,17 +12,17 @@ const Broken = require('../models/Broken')
 
 const router = express.Router();
 
-const { protect } = require('../middleware/auth.js');
+const { protect, authorize } = require('../middleware/auth.js');
 
 router
     .route('/')
     .get(advancedResults(Broken), getBroken)
-    .post(protect, addBroken)
+    .post(protect, authorize('moderator', 'admin'), addBroken)
 
 router
     .route('/:id')
     .get(getOneBroken)
-    .put(protect, updateBroken)
-    .delete(protect, deleteBroken)
+    .put(protect, authorize('moderator', 'admin'), updateBroken)
+    .delete(protect, authorize('moderator', 'admin'), deleteBroken)
 
 module.exports = router;
