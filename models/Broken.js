@@ -1,4 +1,6 @@
-const mongoose = require('mongoose')
+const mongoose = require('mongoose');
+
+const User = require('./User');
 
 const BrokenSchema = new mongoose.Schema({
     _id: {
@@ -12,20 +14,31 @@ const BrokenSchema = new mongoose.Schema({
     },
     url: {
         type: String,
-        default: 'Removed'
+        default: 'Removed from workshop'
     },
     issue: {
         type: String,
         required: [true, 'Please add a short description what is wrong with the mod'],
         maxLength: [50, 'Description cannot be more than 50 characters']
     },
-    replacements: [
+    replacements:[
         {
             _id: false,
             replacementTitle: String,
             replacementUrl: String
         }
-    ]
-})
+    ],
+    addedBy: {
+        type: mongoose.Schema.ObjectId,
+        ref: 'User',
+        required: true
+    },
+    firstAddedOn: {
+        type: Date,
+        default: Date.now
+    },
+    lastEditBy: String,
+    lastEditDate: Date
+});
 
 module.exports = mongoose.model('Broken', BrokenSchema);

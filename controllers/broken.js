@@ -1,20 +1,26 @@
-const ErrorResponse = require('../utils/errorResponse.js')
-const asyncHandler = require('../middleware/async.js')
+const ErrorResponse = require('../utils/errorResponse.js');
+const asyncHandler = require('../middleware/async.js');
 
-const Broken = require('../models/Broken.js')
+const Broken = require('../models/Broken.js');
+// const User = require('../models/User.js');
 
 // @desc    Get all broken mods
 // @route   GET /broken
 // @access  Public
-exports.getBroken = async (req, res, next) => {
+exports.getBroken = asyncHandler(async (req, res, next) => {
     res.status(200).json(res.advancedResults);
-};
+});
 
 // @desc    Get a single mod
 // @route   GET /broken/:id
 // @access  Public
 exports.getOneBroken = asyncHandler(async (req, res, next) => {
-    const mod = await Broken.findById(req.params.id)
+    const mod = await Broken
+        .findById(req.params.id)
+        .populate({
+            path: 'addedBy',
+            select: 'name role'
+        });
 
     if(!mod) {
         return next(
@@ -36,8 +42,11 @@ exports.getOneBroken = asyncHandler(async (req, res, next) => {
 // @route   POST /broken
 // @access  Private
 exports.addBroken = asyncHandler(async (req, res, next) => {
-    const modData = await req.body;
-    const modId = modData._id
+    // Adds user who created it
+    req.body.addedBy = req.user._id;
+
+    const reqData = await req.body;
+    const modId = reqData._id
 
     // Checks if the ID is between 6 and 12 characters
     if(modId.toString().length < 6 || modId.toString().length > 12) {
@@ -49,23 +58,25 @@ exports.addBroken = asyncHandler(async (req, res, next) => {
         )
     }
 
-    const exists = await Broken.findById(modData._id)
+    // Check if the ID already exists in the DB
+    const exists = await Broken.findById(reqData._id);
 
     if(exists) {
         return next(
             new ErrorResponse(
-                `Cannot add. A mod with ID of '${modData._id}' already exists. Try editing the data instead.`,
+                `Cannot add. A mod with ID of '${reqData._id}' already exists. Try editing the data instead.`,
                 409
             )
         )
-    }
+    };
 
-    const addedMod = await Broken.create(modData)
+    // Ads mod to the DB
+    await Broken.create(req.body)
 
     res.status(201).json({
         success: true,
         msg: 'Mod successfully added',
-        data: addedMod
+        data: req.body
     })
 })
 

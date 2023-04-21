@@ -91,15 +91,6 @@ exports.logout = asyncHandler(async(req, res, next) => {
 exports.getMe = asyncHandler(async(req, res, next) => {
     const user = await User.findById(req.user.id);
 
-    if(!user) {
-        return next(
-            new ErrorResponse(
-                'No user logged in!',
-                401
-            )
-        )
-    };
-
     res.status(200).json({
         success: true,
         message: `Currently logged in user: ${req.user.name}`,
