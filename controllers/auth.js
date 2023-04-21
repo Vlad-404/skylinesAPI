@@ -9,6 +9,15 @@ const User = require('../models/User.js')
 exports.registerUser = asyncHandler(async(req, res, next) => {
     const newUser = await req.body;
 
+    if(newUser.name.length > 50) {
+        return next(
+            new ErrorResponse(
+                'The name cannot be longer than 50 characters',
+                400
+            )
+        )
+    };
+
     // Create a user
     const user = await User.create(newUser);
 
@@ -59,13 +68,37 @@ exports.loginUser = asyncHandler(async(req, res, next) => {
     sendTokenResponse(user, 200, res, 'logged in.');
 });
 
-// Log out
+// @desc    Logout current user
+// @route   GET /auth/logout
+// @access  Private
+exports.logout = asyncHandler(async(req, res, next) => {
+    // Removes the cookie to log out the user
+    res.cookie('token', 'none', {
+        expires: new Date(Date.now() + 10 * 1000),
+        httpOnly: true
+    });
+
+    res.status(200).json({
+        success: true,
+        message: `User logged out.`,
+        data: {}
+    });
+})
 // Get current user(self)
 // @desc    Get current user(self)
 // @route   GET /auth/me
 // @access  Private
 exports.getMe = asyncHandler(async(req, res, next) => {
     const user = await User.findById(req.user.id);
+
+    if(!user) {
+        return next(
+            new ErrorResponse(
+                'No user logged in!',
+                401
+            )
+        )
+    };
 
     res.status(200).json({
         success: true,

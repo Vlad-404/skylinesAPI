@@ -11,19 +11,9 @@ exports.protect = asyncHandler(async(req, res, next) => {
     // Using local storage for token
     if (req.headers.authorization && req.headers.authorization.startsWith('Bearer')) {
         token = req.headers.authorization.split(' ')[1];
+    } else if(req.cookies.token) {
+        token = req.cookies.token;
     }
-    // Using a cookie as a token
-    // else if(req.cookies.token) {
-    //     token = req.cookies.token;
-    // }
-
-    // Make sure token exists
-    if(!token) {
-        return next(new ErrorResponse(
-            'No user or account not authorized for this operation',
-            401
-        ));
-    };
 
     try {
         // Verify the token
@@ -33,10 +23,21 @@ exports.protect = asyncHandler(async(req, res, next) => {
 
         next();
     } catch (err) {
-        return next(new ErrorResponse(
-            'No user or account not authorized for this operation',
-            401
-        ));
+        // If no user logged in
+        if(!req.user) {
+            return next(
+                new ErrorResponse(
+                    'Please log in',
+                    400
+                )
+            );
+        } else {
+            return next(
+                new ErrorResponse(
+                    'Account not authorized for this operation',
+                    403
+            ));
+        }
     }
 });
 
