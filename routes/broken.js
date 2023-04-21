@@ -16,7 +16,7 @@ const { protect, authorize } = require('../middleware/auth.js');
 
 router
     .route('/')
-    .get(advancedResults(Broken), getBroken)
+    .get(advancedResults(Broken, { path: 'addedBy', select: 'name role' }), getBroken)
     .post(protect, authorize('moderator', 'admin'), addBroken)
 
 router
